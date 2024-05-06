@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* 동적 경로 */}
-        <Route path="/sea-typo/:text" element={<Main />} />
+        {/*<Route path="/sea-typo/:text" element={<Main />} />*/}
         <Route path="/sea-typo/" element={<Main />} />
       </Routes>
     </BrowserRouter>

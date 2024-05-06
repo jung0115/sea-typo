@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import './Main.css';
 
 import BackgroundImage from "../src/background.jpeg";
@@ -11,10 +11,19 @@ const generateInitialHistory = (length) => {
 };
 
 function Main() {
-  const { text } = useParams();
-  let sentence = "씨라이프 부산에서 선보이는 바다일렁체";
-  if(text != null && text.length > 0) sentence = text;
-  const sentenceLength = sentence.length;
+  const [sentence, setSentence] = useState("씨라이프 부산에서 선보이는 바다일렁체");
+  const [sentenceLength, setSentenceLength] = useState(sentence.length);
+
+  // const { text } = useParams();
+  // if(text != null && text.length > 0) sentence = text;
+
+  
+
+  // 텍스트 입력창의 onChange 이벤트 핸들러
+  const handleInputChange = (e) => {
+    setSentence(e.target.value); // 입력된 텍스트를 상태로 업데이트
+    setSentenceLength(e.target.value.length);
+  };
 
   // 히스토리 길이를 문장의 2배 정도로 설정
   const historyLength = sentenceLength * 7;
@@ -42,6 +51,14 @@ function Main() {
 
   return (
     <Background>
+      {/* 텍스트 입력창 */}
+      <Input
+        type="text"
+        value={sentence} // 입력값을 상태로 바인딩
+        onChange={handleInputChange} // 값이 변경될 때 호출될 이벤트 핸들러
+        placeholder="텍스트를 입력하세요"
+      />
+
       {Array.from({ length: sentenceLength }).map((_, index) => {
         // 문자 간격을 유지하도록 히스토리의 위치를 계산
         
@@ -74,6 +91,9 @@ function Main() {
 
 
 const Background = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: end;
   background-image: url(${BackgroundImage});
   height: 100vh;
   background-size: auto 100%;
@@ -82,6 +102,11 @@ const Background = styled.div`
   position: relative;
   overflow: hidden;
   font-family: 'Sea';
+`;
+
+const Input = styled.input`
+  margin-bottom: 40px;
+  width: 28vw;
 `;
 
 export default Main;
