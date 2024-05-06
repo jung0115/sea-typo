@@ -1,1 +1,1 @@
-# Typography-animation
+# 마우스 커서 따라서 움직이는 텍스트 애니메이션
