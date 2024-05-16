@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/sea-typo/static/css/main.ac012911.css",
-    "main.js": "/sea-typo/static/js/main.c1d1f3b0.js",
+    "main.js": "/sea-typo/static/js/main.e69114fb.js",
     "static/media/SEAfont.otf": "/sea-typo/static/media/SEAfont.8c94e477c8a154b8a4c2.otf",
     "static/media/background.jpeg": "/sea-typo/static/media/background.7231eb6a4750d928c07b.jpeg",
     "index.html": "/sea-typo/index.html",
     "main.ac012911.css.map": "/sea-typo/static/css/main.ac012911.css.map",
-    "main.c1d1f3b0.js.map": "/sea-typo/static/js/main.c1d1f3b0.js.map"
+    "main.e69114fb.js.map": "/sea-typo/static/js/main.e69114fb.js.map"
   },
   "entrypoints": [
     "static/css/main.ac012911.css",
-    "static/js/main.c1d1f3b0.js"
+    "static/js/main.e69114fb.js"
   ]
 }
