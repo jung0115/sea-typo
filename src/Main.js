@@ -82,13 +82,6 @@ function Main() {
     <Container>
       <Background ref={backgroundRef}>
         <BgImage src={BackgroundImage} />
-        {/* 텍스트 입력창 */}
-        <Input
-          type="text"
-          value={sentence} // 입력값을 상태로 바인딩
-          onChange={handleInputChange} // 값이 변경될 때 호출될 이벤트 핸들러
-          placeholder="텍스트를 입력하세요"
-        />
 
         {Array.from({ length: sentenceLength }).map((_, index) => {
           // 문자 간격을 유지하도록 히스토리의 위치를 계산
@@ -118,6 +111,14 @@ function Main() {
         })}
       </Background>
 
+      {/* 텍스트 입력창 */}
+      <Input
+        type="text"
+        value={sentence} // 입력값을 상태로 바인딩
+        onChange={handleInputChange} // 값이 변경될 때 호출될 이벤트 핸들러
+        placeholder="텍스트를 입력하세요"
+      />
+
       <Download>
         <FontContainer>
           <Title>바다일렁체</Title>
@@ -133,6 +134,9 @@ function Main() {
 }
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100vw;
   height: auto;
 `;
@@ -143,7 +147,6 @@ const Background = styled.div`
   justify-content: center;
   align-items: end;
   width: 100vw;
-  
   height: auto;
   position: relative;
   font-family: 'Sea';
@@ -151,14 +154,13 @@ const Background = styled.div`
   overflow-x: hidden;
 `;
 const BgImage = styled.img`
-  
   width: 100vw;
   height: auto;
 `;
 
 const Input = styled.input`
-  position: absolute;
-  margin-bottom: 40px;
+  display: flex;
+  margin: 25px auto 0px auto;
   padding: 2px 8px;
   width: 28vw;
   height: 1.3rem;
@@ -170,7 +172,7 @@ const Input = styled.input`
 
 const Download = styled.div`
   background-color: white;
-  padding: 40px 270px 30px 270px;
+  padding: 30px 270px 30px 270px;
 `;
 
 const FontContainer = styled.div`
