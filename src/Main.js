@@ -6,7 +6,7 @@ import './Main.css';
 import { BsDownload } from "react-icons/bs";
 
 import BackgroundImage from "./background.jpeg";
-import FontUrl from "./sea.otf";
+import FontUrl from "./SEAfont.otf";
 
 // 히스토리의 초기 배열을 생성
 const generateInitialHistory = (length) => {
