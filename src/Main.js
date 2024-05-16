@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 // import { useParams } from 'react-router-dom';
 import './Main.css';
@@ -13,6 +13,8 @@ const generateInitialHistory = (length) => {
 function Main() {
   const [sentence, setSentence] = useState("씨라이프 부산에서 선보이는 바다일렁체");
   const [sentenceLength, setSentenceLength] = useState(sentence.length);
+
+  const backgroundRef = useRef(null);
 
   // const { text } = useParams();
   // if(text != null && text.length > 0) sentence = text;
@@ -33,11 +35,23 @@ function Main() {
     const handleMouseMove = (e) => {
       const newPoint = { x: e.clientX, y: e.clientY };
 
-      // 새로운 위치를 추가하고, 히스토리의 길이를 유지
-      setHistory((prevHistory) => {
-        const newHistory = [newPoint, ...prevHistory.slice(0, historyLength - 1)];
-        return newHistory;
-      });
+      // 마우스가 Background 태그 내에 있는지 확인
+      const backgroundRect = backgroundRef.current.getBoundingClientRect();
+      const isInsideBackground = (
+        e.clientX >= backgroundRect.left &&
+        e.clientX <= backgroundRect.right &&
+        e.clientY >= backgroundRect.top &&
+        e.clientY <= backgroundRect.bottom
+      );
+      
+      // 마우스가 Background 태그 내에 있을 때만 히스토리를 업데이트
+      if (isInsideBackground) {
+        // 새로운 위치를 추가하고, 히스토리의 길이를 유지
+        setHistory((prevHistory) => {
+          const newHistory = [newPoint, ...prevHistory.slice(0, historyLength - 1)];
+          return newHistory;
+        });
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -49,7 +63,7 @@ function Main() {
 
   return (
     <Container>
-      <Background>
+      <Background ref={backgroundRef}>
         {/* 텍스트 입력창 */}
         <Input
           type="text"
@@ -127,7 +141,7 @@ const Input = styled.input`
 const Download = styled.div`
   width: 100vw;
   background-color: white;
-  height: 10vh;
+  min-height: 10vh;
 `;
 
 export default Main;
