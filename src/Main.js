@@ -81,6 +81,7 @@ function Main() {
   return (
     <Container>
       <Background ref={backgroundRef}>
+        <BgImage src={BackgroundImage} />
         {/* 텍스트 입력창 */}
         <Input
           type="text"
@@ -133,24 +134,30 @@ function Main() {
 
 const Container = styled.div`
   width: 100vw;
+  height: auto;
 `;
 
 const Background = styled.div`
   display: flex;
+  position: absolute;
   justify-content: center;
   align-items: end;
-  background-image: url(${BackgroundImage});
   width: 100vw;
-  min-height: 100vh;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: top;
+  
+  height: auto;
   position: relative;
   font-family: 'Sea';
   overflow-y: auto;
+  overflow-x: hidden;
+`;
+const BgImage = styled.img`
+  
+  width: 100vw;
+  height: auto;
 `;
 
 const Input = styled.input`
+  position: absolute;
   margin-bottom: 40px;
   padding: 2px 8px;
   width: 28vw;
