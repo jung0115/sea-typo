@@ -39,22 +39,24 @@ function Main() {
       const newPoint = { x: e.clientX, y: e.clientY };
 
       // 마우스가 Background 태그 내에 있는지 확인
-      const backgroundRect = backgroundRef.current.getBoundingClientRect();
+      /*const backgroundRect = backgroundRef.current.getBoundingClientRect();
       const isInsideBackground = (
         e.clientX >= backgroundRect.left &&
         e.clientX <= backgroundRect.right &&
         e.clientY >= backgroundRect.top &&
         e.clientY <= backgroundRect.bottom
-      );
+      );*/
       
       // 마우스가 Background 태그 내에 있을 때만 히스토리를 업데이트
-      if (isInsideBackground) {
-        // 새로운 위치를 추가하고, 히스토리의 길이를 유지
-        setHistory((prevHistory) => {
-          const newHistory = [newPoint, ...prevHistory.slice(0, historyLength - 1)];
-          return newHistory;
-        });
-      }
+      //if (isInsideBackground) {
+      
+      // 새로운 위치를 추가하고, 히스토리의 길이를 유지
+      setHistory((prevHistory) => {
+        const newHistory = [newPoint, ...prevHistory.slice(0, historyLength - 1)];
+        return newHistory;
+      });
+
+      //}
     };
 
     window.addEventListener('mousemove', handleMouseMove);
