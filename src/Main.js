@@ -1,9 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 // import { useParams } from 'react-router-dom';
-import './Main.css';
 
-import BackgroundImage from "../src/background.jpeg";
+import './Main.css';
+import { BsDownload } from "react-icons/bs";
+
+import BackgroundImage from "./background.jpeg";
+import FontUrl from "./sea.otf";
 
 // 히스토리의 초기 배열을 생성
 const generateInitialHistory = (length) => {
@@ -61,6 +65,18 @@ function Main() {
     };
   }, []); // 빈 배열을 전달하여 한 번만 실행되도록 설정
 
+  // 폰트 다운로드
+  const handleDownload = () => {
+    const downloadUrl = FontUrl;
+
+    // 파일 다운로드 링크 생성
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.setAttribute('download', 'SEAfont.otf');
+    document.body.appendChild(link);
+    link.click();
+  };
+
   return (
     <Container>
       <Background ref={backgroundRef}>
@@ -101,9 +117,15 @@ function Main() {
       </Background>
 
       <Download>
-
+        <FontContainer>
+          <Title>바다일렁체</Title>
+          <DownloadBtn
+            onClick={handleDownload}>
+            <BtnText>바다일렁체 글꼴 내려받기</BtnText>
+            <BsDownload />
+          </DownloadBtn>
+        </FontContainer>
       </Download>
-
     </Container>
   );
 }
@@ -139,9 +161,37 @@ const Input = styled.input`
 `;
 
 const Download = styled.div`
-  width: 100vw;
   background-color: white;
-  min-height: 10vh;
+  padding: 40px 270px 30px 270px;
+`;
+
+const FontContainer = styled.div`
+  display: flex;
+  align-items: center;
+  border: 0.3px solid #9c9c9c;
+  border-radius: 5px;
+  padding: 50px 100px;
+`;
+
+const Title = styled.div`
+  font-family: 'Sea';
+  font-size: 1.7rem;
+  color: black;
+`;
+
+const DownloadBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  border-radius: 3px;
+  background: black;
+  padding: 12px 30px;
+  margin-left: auto;
+  color: white;
+`;
+const BtnText = styled.div`
+  font-size: 0.9rem;
+  margin-right: 7px;
+  cursor: pointer;
 `;
 
 export default Main;
