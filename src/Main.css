@@ -8,4 +8,5 @@ span {
   pointer-events: none; /* 마우스 이벤트가 텍스트에 적용되지 않도록 */
   color: #333;
   transition: all 0.2s ease-out; /* 부드러운 애니메이션 */
+  font-size: 1.4rem;
 }
