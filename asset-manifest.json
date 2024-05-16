@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/sea-typo/static/css/main.371953aa.css",
-    "main.js": "/sea-typo/static/js/main.93fd7bae.js",
+    "main.js": "/sea-typo/static/js/main.2a06bcca.js",
     "static/media/SEAfont.otf": "/sea-typo/static/media/SEAfont.8c94e477c8a154b8a4c2.otf",
-    "static/media/background.jpeg": "/sea-typo/static/media/background.acaaaf62b744f13ddf65.jpeg",
+    "static/media/background.jpeg": "/sea-typo/static/media/background.7231eb6a4750d928c07b.jpeg",
     "index.html": "/sea-typo/index.html",
     "main.371953aa.css.map": "/sea-typo/static/css/main.371953aa.css.map",
-    "main.93fd7bae.js.map": "/sea-typo/static/js/main.93fd7bae.js.map"
+    "main.2a06bcca.js.map": "/sea-typo/static/js/main.2a06bcca.js.map"
   },
   "entrypoints": [
     "static/css/main.371953aa.css",
-    "static/js/main.93fd7bae.js"
+    "static/js/main.2a06bcca.js"
   ]
 }
