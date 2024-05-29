@@ -14,7 +14,7 @@ const generateInitialHistory = (length) => {
 };
 
 function Main() {
-  const [sentence, setSentence] = useState("씨라이프 부산에서 선보이는 바다일렁체");
+  const [sentence, setSentence] = useState("문구를 입력하고 마우스를 움직여 보세요");
   const [sentenceLength, setSentenceLength] = useState(sentence.length);
 
   const backgroundRef = useRef(null);
